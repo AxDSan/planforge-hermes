@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>PlanForge</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1>PlanForge</h1>
+      <p id="project-name">Loading...</p>
+    </header>
+
+    <section class="progress-section">
+      <div class="progress-header">
+        <span>Overall Progress</span>
+        <span id="progress-text">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="phases-section">
+      <h2>Phases</h2>
+      <div id="phases-list" class="phases-list">
+        <!-- Phases injected here -->
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="btn-status" class="btn btn-primary">Check Status</button>
+      <button id="btn-refresh" class="btn btn-secondary">Refresh</button>
+    </section>
+  </div>
+
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
