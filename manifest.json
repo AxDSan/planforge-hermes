@@ -1,0 +1,64 @@
+{
+  "name": "planforge",
+  "version": "0.1.0",
+  "description": "Spec-driven development planning plugin for Hermes Agent",
+  "author": "Abdias J (AxDSan) <abdi.moya@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/AxDSan/planforge-hermes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AxDSan/planforge-hermes.git"
+  },
+  "keywords": [
+    "hermes",
+    "hermes-plugin",
+    "planning",
+    "spec-driven",
+    "development",
+    "project-management",
+    "gsd"
+  ],
+  "engines": {
+    "hermes": ">=0.11.0"
+  },
+  "entrypoint": "planforge/__init__.py",
+  "hooks": [
+    "register_command",
+    "pre_tool_call",
+    "transform_tool_result",
+    "transform_terminal_output"
+  ],
+  "dashboard": {
+    "tabs": [
+      {
+        "id": "roadmap",
+        "label": "Roadmap",
+        "component": "dashboard/RoadmapTab.tsx",
+        "icon": "map"
+      }
+    ]
+  },
+  "skills": [
+    "skills/planforge-init",
+    "skills/planforge-plan",
+    "skills/planforge-execute",
+    "skills/planforge-verify"
+  ],
+  "config": {
+    "planforge.auto_verify": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto-run verification after phase execution"
+    },
+    "planforge.strict_mode": {
+      "type": "boolean",
+      "default": true,
+      "description": "Require all acceptance criteria to pass"
+    },
+    "planforge.max_waves": {
+      "type": "integer",
+      "default": 5,
+      "description": "Maximum parallel waves per phase"
+    }
+  }
+}
