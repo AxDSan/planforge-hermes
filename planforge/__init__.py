@@ -9,7 +9,7 @@ import os
 import json
 
 __version__ = "0.1.0"
-__author__ = "Abdias J (AxDSan) <abdi.moya@gmail.com>"
+__author__ = "Abdias J (AxDSan)"
 
 
 def register(ctx: Any) -> None:

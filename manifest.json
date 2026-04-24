@@ -2,7 +2,7 @@
   "name": "planforge",
   "version": "0.1.0",
   "description": "Spec-driven development planning plugin for Hermes Agent",
-  "author": "Abdias J (AxDSan) <abdi.moya@gmail.com>",
+  "author": "Abdias J (AxDSan)",
   "license": "MIT",
   "homepage": "https://github.com/AxDSan/planforge-hermes",
   "repository": {
