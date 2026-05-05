@@ -113,7 +113,7 @@ def _hook_transform_tool_result(ctx: Any, tool_name: str, result: Any) -> Any:
     transform_tool_result hook — rewrite tool results.
     PlanForge formats output for verification checklist.
     """
-    from . import verify
+    from . import state, verify
     if state.is_executing_phase():
         return verify.format_result(tool_name, result)
     return result
@@ -124,7 +124,7 @@ def _hook_transform_terminal_output(ctx: Any, output: str) -> str:
     transform_terminal_output hook — rewrite terminal output.
     PlanForge parses build/test logs for checklist items.
     """
-    from . import verify
+    from . import state, verify
     if state.is_executing_phase():
         return verify.parse_terminal_output(output)
     return output
