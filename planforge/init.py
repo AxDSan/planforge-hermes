@@ -2,6 +2,9 @@
 
 from typing import Any
 import os
+import logging
+
+_logger = logging.getLogger("planforge")
 
 
 def run(ctx: Any, args: str) -> str:
@@ -88,5 +91,5 @@ def run(ctx: Any, args: str) -> str:
 }
 """)
 
-    ctx.log.info(f"Initialized PlanForge project: {project_name}")
+    _logger.info(f"Initialized PlanForge project: {project_name}")
     return f"✅ PlanForge initialized: **{project_name}**\n📁 `.planning/` created in `{cwd}`\n\nNext: `/planforge-plan 1` to start Phase 1."

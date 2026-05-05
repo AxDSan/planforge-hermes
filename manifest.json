@@ -23,7 +23,6 @@
   },
   "entrypoint": "planforge/__init__.py",
   "hooks": [
-    "register_command",
     "pre_tool_call",
     "transform_tool_result",
     "transform_terminal_output"

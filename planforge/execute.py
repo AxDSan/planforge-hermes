@@ -3,6 +3,9 @@
 from typing import Any
 import os
 import re
+import logging
+
+_logger = logging.getLogger("planforge")
 
 
 def run(ctx: Any, args: str) -> str:
@@ -33,7 +36,7 @@ def run(ctx: Any, args: str) -> str:
     # Update STATE.md
     _update_state(planning_dir, phase, "Executing")
 
-    ctx.log.info(f"Executing phase {phase} with {len(tasks)} tasks")
+    _logger.info(f"Executing phase {phase} with {len(tasks)} tasks")
 
     # Build execution summary
     summary = f"🚀 **Phase {phase} Execution Started**\n\n"

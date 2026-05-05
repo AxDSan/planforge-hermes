@@ -3,6 +3,9 @@
 from typing import Any
 import os
 import re
+import logging
+
+_logger = logging.getLogger("planforge")
 
 
 def run(ctx: Any, args: str) -> str:
@@ -30,7 +33,7 @@ def run(ctx: Any, args: str) -> str:
     # Update STATE.md
     _update_state(planning_dir, phase, "Planning")
 
-    ctx.log.info(f"Created plan for phase {phase}")
+    _logger.info(f"Created plan for phase {phase}")
     return f"✅ **Phase {phase} Plan** created at `{plan_file}`\n\nPreview:\n```\n{plan_content[:600]}\n```\n\nEdit the file, then run `/planforge-execute {phase}`."
 
 

@@ -7,6 +7,9 @@ Entrypoint: Hermes calls register(ctx) on plugin load.
 from typing import Any
 import os
 import json
+import logging
+
+_logger = logging.getLogger("planforge")
 
 __version__ = "0.1.0"
 __author__ = "Abdias J (AxDSan)"
@@ -31,7 +34,7 @@ def register(ctx: Any) -> None:
     ctx.register_hook("transform_terminal_output", _hook_transform_terminal_output)
 
     # Log registration
-    ctx.log.info(f"PlanForge v{__version__} registered — spec-driven planning ready")
+    _logger.info(f"PlanForge v{__version__} registered — spec-driven planning ready")
 
 
 # ───────────────────────────────────────────────────────────────
@@ -103,7 +106,7 @@ def _hook_pre_tool_call(ctx: Any, tool_name: str, tool_args: dict) -> dict | Non
     """
     from . import state
     if state.is_phase_locked():
-        ctx.log.warning(f"Tool '{tool_name}' blocked — phase execution in progress")
+        _logger.warning(f"Tool '{tool_name}' blocked — phase execution in progress")
         return {"veto": True, "reason": "Phase execution in progress. Use /planforge-status to check."}
     return None  # Allow execution
 
